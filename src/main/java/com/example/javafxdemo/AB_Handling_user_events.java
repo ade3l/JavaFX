@@ -22,6 +22,11 @@ public class AB_Handling_user_events extends Application implements EventHandler
 //        Set click to the button
         button.setOnAction(this);
 
+//        Alternate lambda expression is
+        /*button.setOnAction(actionEvent -> {
+            System.out.println("This is a lambda fn");
+        });*/
+
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
         Scene scene = new Scene(layout, 300, 200);
