@@ -27,7 +27,7 @@ public class AA_Creating_a_basic_window extends Application {
         StackPane layout = new StackPane();
 //        Add button to the layout
         layout.getChildren().add(button);
-
+// Create the scene and specify its dimensions (l*w)
         Scene scene = new Scene(layout, 300, 200);
         stage.setScene(scene);
         stage.show();
