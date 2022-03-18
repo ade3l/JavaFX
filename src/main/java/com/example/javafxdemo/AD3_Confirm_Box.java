@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AF_Confirm_Box {
+public class AD3_Confirm_Box {
     static Boolean answer;
     public static Boolean display(String title, String message){
         Stage window = new Stage();

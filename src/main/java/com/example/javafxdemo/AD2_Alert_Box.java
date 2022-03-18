@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AE_Alert_Box {
+public class AD2_Alert_Box {
     public static void display(String title, String message){
         Stage window = new Stage();
 //        Set the modality so that while this window is open you cannot interact with the other one
