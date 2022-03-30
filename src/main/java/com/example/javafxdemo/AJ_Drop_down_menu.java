@@ -17,7 +17,7 @@ public class AJ_Drop_down_menu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         window = stage;
-        window.setTitle("Fruits rop down menu");
+        window.setTitle("Fruits drop down menu");
         Button button = new Button("Click me");
 
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
@@ -28,7 +28,10 @@ public class AJ_Drop_down_menu extends Application {
 //        Setting default value so that it is not empty when user first opens it
         choiceBox.setValue("Apples");
 
-        button.setOnAction(e -> getChoice(choiceBox));
+        //Listen for selection changes
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            System.out.println(newValue);
+        });
         VBox layout = new VBox(10);
         layout.setPadding(new Insets(20, 20, 20, 20));
         layout.getChildren().addAll(choiceBox, button);
@@ -38,8 +41,8 @@ public class AJ_Drop_down_menu extends Application {
         window.show();
     }
 
-    private void getChoice(ChoiceBox<String> choiceBox) {
-        String food = choiceBox.getValue();
-        System.out.println("User selected: "+ food);
-    }
+//    private void getChoice(ChoiceBox<String> choiceBox) {
+//        String food = choiceBox.getValue();
+//        System.out.println("User selected: "+ food);
+//    }
 }
