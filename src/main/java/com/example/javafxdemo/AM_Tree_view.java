@@ -41,9 +41,12 @@ public class AM_Tree_view extends Application {
         //Create the tree
         tree = new TreeView<>(root);
         //In our program root is just a container for other branches
-//        If root was showm we would need to expand it to see branch1 and branch2
+//        If root was shown we would need to expand it to see branch1 and branch2
         tree.setShowRoot(false);
-
+        tree.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue )->{
+            if(newValue != null)
+                System.out.println(newValue.getValue());
+        });
         StackPane layout = new StackPane();
         layout.getChildren().add(tree);
         Scene scene = new Scene(layout, 400, 400);
