@@ -16,7 +16,7 @@ public class AN2_Product {
         this.price = price;
         this.quantity = quantity;
     }
-
+//    Getters and setters are very important for table view
     public String getName() {
         return name;
     }
