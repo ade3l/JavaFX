@@ -61,7 +61,8 @@ public class AN3_Editable_tables extends Application {
 
         Button addButton = new Button("Add");
         Button delButton = new Button("Delete");
-
+        addButton.setOnAction(e -> addButtonClicked());
+//        delButton.setOnAction(e -> delButtonClicked());
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10,10,10,10));
         //Add spacing between elements inside the hBox
@@ -74,6 +75,21 @@ public class AN3_Editable_tables extends Application {
         window.setScene(scene);
         window.show();
     }
+
+    private void addButtonClicked() {
+        AN2_Product newProduct = new AN2_Product();
+        //Validation on user inputs not done
+        newProduct.setName(nameInput.getText());
+        newProduct.setPrice(Double.parseDouble(priceInput.getText()));
+        newProduct.setQuantity(Integer.parseInt(quantityInput.getText()));
+
+        table.getItems().add(newProduct);
+
+        nameInput.clear();
+        priceInput.clear();
+        quantityInput.clear();
+    }
+
     //Function to get all products
     public ObservableList<AN2_Product> getProducts(){
         ObservableList<AN2_Product> products = FXCollections.observableArrayList();
