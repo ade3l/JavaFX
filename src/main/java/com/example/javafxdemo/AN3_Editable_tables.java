@@ -62,7 +62,7 @@ public class AN3_Editable_tables extends Application {
         Button addButton = new Button("Add");
         Button delButton = new Button("Delete");
         addButton.setOnAction(e -> addButtonClicked());
-//        delButton.setOnAction(e -> delButtonClicked());
+        delButton.setOnAction(e -> delButtonClicked());
         HBox hBox = new HBox();
         hBox.setPadding(new Insets(10,10,10,10));
         //Add spacing between elements inside the hBox
@@ -88,6 +88,13 @@ public class AN3_Editable_tables extends Application {
         nameInput.clear();
         priceInput.clear();
         quantityInput.clear();
+    }
+
+    private void delButtonClicked() {
+        ObservableList<AN2_Product> selectedProduct, allProducts;
+        allProducts = table.getItems();
+        selectedProduct = table.getSelectionModel().getSelectedItems();
+        selectedProduct.forEach(allProducts::remove);
     }
 
     //Function to get all products
