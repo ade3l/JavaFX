@@ -43,6 +43,10 @@ public class AN3_Editable_tables extends Application {
         quantityColumn.setMinWidth(200);
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
+        table = new TableView<>();
+        table.setItems(getProducts());
+        table.getColumns().addAll(nameColumn, priceColumn, quantityColumn);
+
         nameInput = new TextField();
         nameInput.setPromptText("Name");
         nameInput.setMinWidth(100);
@@ -63,10 +67,6 @@ public class AN3_Editable_tables extends Application {
         //Add spacing between elements inside the hBox
         hBox.setSpacing(10);
         hBox.getChildren().addAll(nameInput, priceInput, quantityInput, addButton, delButton);
-
-        table = new TableView<>();
-        table.setItems(getProducts());
-        table.getColumns().addAll(nameColumn, priceColumn, quantityColumn);
 
         VBox layout = new VBox();
         layout.getChildren().addAll(table,hBox);
