@@ -47,15 +47,26 @@ public class AO_Menus extends Application {
                 System.out.println("Line numbers disabled");
             }
         });
-
         CheckMenuItem autoSave = new CheckMenuItem("Enable auto-save");
 //        Checked by default
         autoSave.setSelected(true);
         helpMenu.getItems().addAll(showLines, autoSave);
 
+//       Radio menu items
+        Menu difficultyMenu = new Menu("Difficulty");
+        RadioMenuItem easy = new RadioMenuItem("Easy");
+        RadioMenuItem medium = new RadioMenuItem("Medium");
+        RadioMenuItem hard = new RadioMenuItem("Hard");
+//        To group together multiple radio buttons and make only one selectable we need to put it in a toggle group
+        ToggleGroup difficultyToggle = new ToggleGroup();
+        easy.setToggleGroup(difficultyToggle);
+        medium.setToggleGroup(difficultyToggle);
+        hard.setToggleGroup(difficultyToggle);
+        difficultyMenu.getItems().addAll(easy, medium, hard);
+
         //Main menu
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu);
+        menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu, difficultyMenu);
 
         layout = new BorderPane();
         layout.setTop(menuBar);
