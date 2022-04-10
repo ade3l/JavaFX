@@ -2,10 +2,7 @@ package com.example.javafxdemo;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -40,9 +37,25 @@ public class AO_Menus extends Application {
         paste.setDisable(true);
         editMenu.getItems().add(paste);
 
+        Menu helpMenu = new Menu("Help");
+        CheckMenuItem showLines = new CheckMenuItem("Show line numbers");
+        showLines.setOnAction(e -> {
+            if(showLines.isSelected()){
+                System.out.println("Program will now display line numbers");
+            }
+            else {
+                System.out.println("Line numbers disabled");
+            }
+        });
+
+        CheckMenuItem autoSave = new CheckMenuItem("Enable auto-save");
+//        Checked by default
+        autoSave.setSelected(true);
+        helpMenu.getItems().addAll(showLines, autoSave);
+
         //Main menu
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu, editMenu);
+        menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu);
 
         layout = new BorderPane();
         layout.setTop(menuBar);
