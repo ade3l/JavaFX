@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -20,12 +21,28 @@ public class AO_Menus extends Application {
         window.setTitle("Menu demo");
         //File menu
         Menu fileMenu = new Menu("File");
-        fileMenu.getItems().add(new MenuItem("New project..."));
-        fileMenu.getItems().addAll(new MenuItem("New Module..."), new MenuItem("Import Project..."));
+
+        MenuItem newFile = new MenuItem("New");
+        newFile.setOnAction(e -> System.out.println("New File clicked"));
+        fileMenu.getItems().add(newFile);
+
+        fileMenu.getItems().addAll(new MenuItem("Open..."), new MenuItem("Save..."));
+        fileMenu.getItems().add(new SeparatorMenuItem());
+        fileMenu.getItems().addAll(new MenuItem("Settings..."), new SeparatorMenuItem(), new MenuItem("Exit..."));
+
+        //Edit Menu
+//        If we add an underscore just before the name, it will add a shortcut
+        Menu editMenu = new Menu("_Edit");
+        editMenu.getItems().addAll(new MenuItem("Cut"), new MenuItem("Copy"));
+
+        //Create a greyed out menu button
+        MenuItem paste =  new MenuItem("Paste");
+        paste.setDisable(true);
+        editMenu.getItems().add(paste);
 
         //Main menu
         MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().add(fileMenu);
+        menuBar.getMenus().addAll(fileMenu, editMenu);
 
         layout = new BorderPane();
         layout.setTop(menuBar);
