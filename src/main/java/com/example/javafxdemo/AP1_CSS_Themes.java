@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 public class AP1_CSS_Themes extends Application {
     Stage window;
+    GridPane gridPane;
     public static void main(String[] args) {
         launch(args);
     }
@@ -20,7 +21,15 @@ public class AP1_CSS_Themes extends Application {
         window=stage;
         window.setTitle("Grid Pane in java FX");
 
-        GridPane gridPane = new GridPane();
+        gridPane = new GridPane();
+        initGrid(gridPane);
+        Scene scene = new Scene(gridPane, 300, 300);
+
+        window.setScene(scene);
+        window.show();
+    }
+
+    void initGrid(GridPane gridPane){
         gridPane.setPadding(new Insets(10,10,10,10));
         gridPane.setVgap(8);
         gridPane.setHgap(10);
@@ -41,9 +50,12 @@ public class AP1_CSS_Themes extends Application {
         Button loginButton = new Button("Login");
         GridPane.setConstraints(loginButton, 1,2);
 
+//        loginButton.setOnAction(e ->{
+//            setUserAgentStylesheet(STYLESHEET_CASPIAN);
+//        });
+
+
         gridPane.getChildren().addAll(nameLabel, nameIP, passLabel, passIP, loginButton);
-        Scene scene = new Scene(gridPane, 300, 300);
-        window.setScene(scene);
-        window.show();
     }
+
 }
