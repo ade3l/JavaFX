@@ -39,9 +39,11 @@ public class AP1_CSS_Themes extends Application {
         gridPane.setHgap(10);
 
         Label nameLabel = new Label("Username: ");
+        nameLabel.setStyle("-fx-text-fill: red;");
         GridPane.setConstraints(nameLabel, 0, 0);
 
         TextField nameIP = new TextField("Default text");
+        nameIP.setId("#bold-label");
         GridPane.setConstraints(nameIP, 1, 0);
 
         Label passLabel = new Label("Password: ");
@@ -52,6 +54,14 @@ public class AP1_CSS_Themes extends Application {
         GridPane.setConstraints(passIP, 1, 1);
 
         Button loginButton = new Button("Login");
+        //Adding gradient to button
+        loginButton.setStyle("-fx-background-color: linear-gradient(#36d77c,green);");
+//        Rounding the corners
+        loginButton.setStyle("-fx-background-radius: 15");
+
+        Button signUpButton = new Button("Sign up");
+//        Applying a custom style
+        signUpButton.getStyleClass().add("button-blue");
         GridPane.setConstraints(loginButton, 1,2);
 
 //        loginButton.setOnAction(e ->{
@@ -59,7 +69,7 @@ public class AP1_CSS_Themes extends Application {
 //        });
 
 
-        gridPane.getChildren().addAll(nameLabel, nameIP, passLabel, passIP, loginButton);
+        gridPane.getChildren().addAll(nameLabel, nameIP, passLabel, passIP, loginButton, signUpButton);
     }
 
 }

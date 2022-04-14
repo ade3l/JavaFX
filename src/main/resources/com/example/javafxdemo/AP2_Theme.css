@@ -1,0 +1,19 @@
+/*apply a style to the entire program*/
+root{
+    -fx-background-color: #e0d040;
+    -fx-font-size: 11pt;
+}
+.label{
+    -fx-text-fill: red;
+}
+
+.button-blue{
+/*    Custom style class*/
+/*    whatever style*/
+}
+
+#bold-label{
+/*    Custom style id*/
+/*    Whatever style*/
+    -fx-font-weight: bold;
+}
