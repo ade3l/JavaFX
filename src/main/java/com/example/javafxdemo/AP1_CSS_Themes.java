@@ -24,7 +24,11 @@ public class AP1_CSS_Themes extends Application {
         gridPane = new GridPane();
         initGrid(gridPane);
         Scene scene = new Scene(gridPane, 300, 300);
-
+//        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//        Tried so much but could not get the theme to apply.
+//        No solution found yet
+//        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        scene.getStylesheets().add("AP2_Theme.css");
         window.setScene(scene);
         window.show();
     }
